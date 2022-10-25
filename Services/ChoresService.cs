@@ -27,16 +27,19 @@ public Chore AddChore(Chore choreData)
 
 public Chore DeleteChore(int id)
 {
-Chore chore = _db.Chores.Find(c=> c.Id == id);
-
- if(  chore == null)
+var chore = _db.Chores.Find(c=> c.Id == id);
+ if(chore == null )
  {
  throw new Exception("Invalid Id [DeleteChore]");
  }
 
-
+ _db.Chores.Remove(chore);
+//NOTE Hi
 return  chore;
 }
+
+
+
 
 
 public ChoresService(FakeDb db)
