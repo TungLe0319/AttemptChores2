@@ -29,9 +29,9 @@ public Chore DeleteChore(int id)
 {
 Chore chore = _db.Chores.Find(c=> c.Id == id);
 
- if(  !_db.Chores.Remove(chore))
+ if(  chore == null)
  {
- throw new Exception("Invalid Id");
+ throw new Exception("Invalid Id [DeleteChore]");
  }
 
 
