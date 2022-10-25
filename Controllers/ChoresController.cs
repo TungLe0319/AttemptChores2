@@ -21,7 +21,7 @@ public class ChoresController : ControllerBase
   }
 
   [HttpGet("{id}")]
-  public ActionResult<Chore> GetChore(string id)
+  public ActionResult<Chore> GetChore(int id)
   {
     try
     {
@@ -54,12 +54,14 @@ public class ChoresController : ControllerBase
 
 
   [HttpDelete("{id}")]
-  public ActionResult<string> Delete(int id)
+  public ActionResult<string>  DeleteChore (int id)
   {
     try
     {
-string ConfirmMessage = _cs.DeleteChore(id);
-return ConfirmMessage;
+   
+Chore chore =  _cs.DeleteChore(id);
+
+return $"{chore.Name} was Deleted";
     }
     catch(System.Exception e)
     {

@@ -25,7 +25,7 @@ public Chore AddChore(Chore choreData)
   return choreData;
 }
 
-public string DeleteChore(int id)
+public Chore DeleteChore(int id)
 {
 Chore chore = _db.Chores.Find(c=> c.Id == id);
 
@@ -35,7 +35,7 @@ Chore chore = _db.Chores.Find(c=> c.Id == id);
  }
 
 
-return $"{chore.Name} Was deleted";
+return  chore;
 }
 
 
